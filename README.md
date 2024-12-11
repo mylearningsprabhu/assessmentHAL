@@ -15,9 +15,6 @@ This project is a test automation framework built using WebdriverIO with TypeScr
 5. [Project Structure](#project-structure)
 6. [Scripts](#scripts)
 7. [Configuration](#configuration)
-8. [Contributing](#contributing)
-9. [License](#license)
-
 ---
 
 ## Features
