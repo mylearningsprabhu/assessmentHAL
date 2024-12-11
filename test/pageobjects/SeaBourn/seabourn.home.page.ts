@@ -18,7 +18,7 @@ class seaBournHomepage {
      * 
      */
     public async clickSearchLink() {
-        await browser.pause(3000);
+    
         await this.SearchLink.waitForClickable({ timeout: 10000 });
         (await this.SearchLink).click();
 
