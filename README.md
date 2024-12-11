@@ -15,6 +15,7 @@ This project is a test automation framework built using WebdriverIO with TypeScr
 5. [Project Structure](#project-structure)
 6. [Scripts](#scripts)
 7. [Configuration](#configuration)
+8. [Code explaination](#Code-explaination)
 ---
 
 ## Features
@@ -95,5 +96,7 @@ The `tsconfig.json` file contains the TypeScript configuration. Key options:
 
 ### WebdriverIO
 The `wdio.conf.ts` file configures WebdriverIO for local execution using ChromeDriver.
+
+### Code explaination
 
 ---
