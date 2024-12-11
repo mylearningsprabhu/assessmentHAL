@@ -13,12 +13,20 @@ class seaBournHomepage {
         return $(`//*[@class='global-search-component__wrapper']//*[@data-automation-id='global-search-search']`);
     }
 
+    public get findCruseSearch() {
+        return $(`//*[@class='cmp-list']//*[@data-automation-id='en-Search']`);
+    }
+
+    public get sortByDropDown() {
+        return $(`//*[@data-automation-id='Sort-by-Featured-Cruise-button']`);
+    }
+
     /**
      * a method to click on search link at top of home page 
      * 
      */
     public async clickSearchLink() {
-    
+
         await this.SearchLink.waitForClickable({ timeout: 10000 });
         (await this.SearchLink).click();
 
@@ -31,6 +39,25 @@ class seaBournHomepage {
     public async isSearchButtonDispalyed() {
         await this.SearchPageSearchButton.waitForClickable({ timeout: 10000 });
         return (await this.SearchPageSearchButton).isDisplayed();
+    }
+
+    /**
+    * a method to click on search button for cruise searching
+    * 
+    */
+    public async clickFindCruseSearch() {
+        await this.findCruseSearch.waitForClickable({ timeout: 10000 });
+        (await this.findCruseSearch).click();
+    }
+
+    /**
+     * a method to validate if drop down is dispalyed which ensures user naviagted to netx page 
+     * 
+     */
+    public async isDropDownDispalyed() {
+
+        await this.sortByDropDown.waitForClickable({ timeout: 10000 });
+        return (await this.sortByDropDown).isDisplayed();
     }
 }
 

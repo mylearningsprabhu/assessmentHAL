@@ -11,6 +11,8 @@ beforeEach(async () => {
 
 describe("Validate search button", async () => {
     Object.entries(appConfig).forEach(([appName, config]) => {
+
+
         it("Test to validate search link click scenario", async () => {
             await browser.url(config.baseUrl);//Navigate to applicaiton URL 
 
@@ -21,7 +23,34 @@ describe("Validate search button", async () => {
             let isSearchButtonDisplayed = await page.isSearchButtonDispalyed();//User will be naviagted to seach page
 
             expect(isSearchButtonDisplayed).toBe(true);//Asserting if search button is displayed or not, which ensures user naviagted from Home page => Search page
-    
+
+        })
+
+        it("Test to validate search cruise button", async () => {
+            await browser.url(config.baseUrl);//Navigate to applicaiton URL 
+
+
+            if (appName === 'holland') {
+                const page = halHomePage;
+                page.clickFindCruise();
+
+                let isDropDownDispalyed = await page.isDropDownDispalyed();//User will be naviagted to seach page
+
+                expect(isDropDownDispalyed).toBe(true);//Asserting if search button is displayed or not, which ensures user naviagted from Home page => Search page
+
+
+            }
+            else
+                if (appName === 'seabourn') {
+                    const page = seaBournHomepage;
+                    page.clickFindCruseSearch();
+
+                    let isDropDownDispalyed = await page.isDropDownDispalyed();//User will be naviagted to seach page
+
+                    expect(isDropDownDispalyed).toBe(true);//Asserting if search button is displayed or not, which ensures user naviagted from Home page => Search page
+
+                }
+
         })
     });
 })

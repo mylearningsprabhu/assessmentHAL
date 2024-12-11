@@ -13,16 +13,24 @@ class halHomePage {
         return $(`//*[@class='global-search-component__wrapper']//*[@data-automation-id='global-search-search']`);
     }
 
+    public get findCruiseButton() {
+        return $(`(//*[@data-automation-id='en-find-cruise-desktop'])[1]`);
+    }
+
+    public get sortByDropDown() {
+        return $(`//*[@data-automation-id='Sort-by-Featured-Cruise-button']`);
+    }
+
     /**
      * a method to click on search link at top of home page 
      * 
      */
     public async clickSearchLink() {
-    
+
         await this.SearchLink.waitForClickable({ timeout: 10000 });
         (await this.SearchLink).click();
 
-    } s
+    }
 
     /**
      * a method to validate if search button is dispalyed 
@@ -32,6 +40,26 @@ class halHomePage {
 
         await this.SearchPageSearchButton.waitForClickable({ timeout: 10000 });
         return (await this.SearchPageSearchButton).isDisplayed();
+    }
+
+    /**
+     * a method to click on find cruise button
+     * 
+     */
+    public async clickFindCruise() {
+        await this.findCruiseButton.waitForClickable({ timeout: 10000 });
+        (await this.findCruiseButton).click();
+
+    }
+
+    /**
+     * a method to validate if drop down is dispalyed which ensures user naviagted to netx page 
+     * 
+     */
+    public async isDropDownDispalyed() {
+
+        await this.sortByDropDown.waitForClickable({ timeout: 10000 });
+        return (await this.sortByDropDown).isDisplayed();
     }
 }
 
