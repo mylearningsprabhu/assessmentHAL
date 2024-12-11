@@ -12,15 +12,15 @@ beforeEach(async () => {
 describe("Validate search button", async () => {
     Object.entries(appConfig).forEach(([appName, config]) => {
         it("Test to validate search link click scenario", async () => {
+            await browser.url(config.baseUrl);//Navigate to applicaiton URL 
 
-            console.log(`Testing app: ${appName}, URL: ${config.baseUrl}, PageTitle:${config.pageTitle}`);
-            await browser.url(config.baseUrl);
             const page = { holland: halHomePage, seabourn: seaBournHomepage }[appName];// Dynamically choose the correct page object based on the app name
 
-            await page.clickSearchLink();
+            await page.clickSearchLink();//Click on search link at top of home page 
 
-            let isSearchButtonDisplayed = await page.isSearchButtonDispalyed(); 
-            expect(isSearchButtonDisplayed).toBe(true);
+            let isSearchButtonDisplayed = await page.isSearchButtonDispalyed();//User will be naviagted to seach page
+
+            expect(isSearchButtonDisplayed).toBe(true);//Asserting if search button is displayed or not, which ensures user naviagted from Home page => Search page
     
         })
     });

@@ -2,33 +2,37 @@
  * sub page containing specific selectors and methods for a specific page
  */
 class halHomePage {
-   /**
-     * define selectors using getter methods
+    /**
+      * define selectors using getter methods
+      */
+    public get SearchLink() {
+        return $(`//*[@class="cmp-global-header__top-row"]//*[@data-automation-id='en-Search']`);
+    }
+
+    public get SearchPageSearchButton() {
+        return $(`//*[@class='global-search-component__wrapper']//*[@data-automation-id='global-search-search']`);
+    }
+
+    /**
+     * a method to click on search link at top of home page 
+     * 
      */
-   public get SearchLink() {
-    return $(`//*[@class="cmp-global-header__top-row"]//*[@data-automation-id='en-Search']`);
-}
+    public async clickSearchLink() {
+        await browser.pause(3000);
+        await this.SearchLink.waitForClickable({ timeout: 10000 });
+        (await this.SearchLink).click();
 
-public get SearchPageSearchButton() {
-    return $(`//*[@class='global-search-component__wrapper']//*[@data-automation-id='global-search-search']`);
-}
+    } s
 
-/**
- * a method to encapsule automation code to interact with the page
- * 
- */
-public async clickSearchLink() {
-    await browser.pause(3000);
-    await this.SearchLink.waitForClickable({ timeout: 10000 });
-    (await this.SearchLink).click();
-    
-}
+    /**
+     * a method to validate if search button is dispalyed 
+     * 
+     */
+    public async isSearchButtonDispalyed() {
 
-public async isSearchButtonDispalyed(){
-
-    await this.SearchPageSearchButton.waitForClickable({ timeout: 10000 });
-    return (await this.SearchPageSearchButton).isDisplayed();
-}
+        await this.SearchPageSearchButton.waitForClickable({ timeout: 10000 });
+        return (await this.SearchPageSearchButton).isDisplayed();
+    }
 }
 
 export default new halHomePage();

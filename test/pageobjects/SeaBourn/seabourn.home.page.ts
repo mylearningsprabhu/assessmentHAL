@@ -14,17 +14,21 @@ class seaBournHomepage {
     }
 
     /**
-     * a method to encapsule automation code to interact with the page
+     * a method to click on search link at top of home page 
      * 
      */
     public async clickSearchLink() {
         await browser.pause(3000);
         await this.SearchLink.waitForClickable({ timeout: 10000 });
         (await this.SearchLink).click();
-      
+
     }
 
-    public async isSearchButtonDispalyed(){
+    /**
+    * a method to validate if search button is dispalyed 
+    * 
+    */
+    public async isSearchButtonDispalyed() {
         await this.SearchPageSearchButton.waitForClickable({ timeout: 10000 });
         return (await this.SearchPageSearchButton).isDisplayed();
     }
